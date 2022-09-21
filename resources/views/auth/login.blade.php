@@ -1,56 +1,46 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+            <!-- Session Status -->
+            <x-auth-session-status class="mb-4 text-danger" :status="session('status')" />
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="__('Email')" />
-
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <!-- Validation Errors -->
+            <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors" />
+    <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+        <div class="brand-logo">
+          <img src="{{asset('logo.jpg')}}" alt="logo">
+        </div>
+        <h4>Hello! let's get started</h4>
+        <h6 class="font-weight-light">Sign in to continue.</h6>
+        <form class="pt-3" method="POST" action="{{ route('login') }}">
+          @csrf
+          <div class="form-group">
+              <x-text-input id="email" placeholder="Username" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+          </div>
+          <div class="form-group">
+              <x-text-input id="password" class="block mt-1 w-full"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required autocomplete="current-password" />
+          </div>
+          <div class="mt-3">
+            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
+          </div>
+          <div class="my-2 d-flex justify-content-between align-items-center">
+            <div class="form-check">
+              <label for="remember_me" class="form-check-label text-muted">
+                <input type="checkbox" class="form-check-input" name="remember" id="remember_me">
+                Keep me signed in
+              </label>
             </div>
+            @if (Route::has('password.request'))
+              <a href="{{ route('password.request') }}" class="auth-link text-black">Forgot password?</a>
+            @endif
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
-
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-primary-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-primary-button>
-            </div>
+            
+          </div>
+          <div class="text-center mt-4 font-weight-light">
+            Don't have an account? <a href="{{route("register")}}" class="text-primary">Create</a>
+          </div>
         </form>
-    </x-auth-card>
+      </div>
 </x-guest-layout>
