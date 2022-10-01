@@ -2,20 +2,13 @@
     "title" => "",
     "link" => "",
     "icon" => "",
-    "active" => false
 ])
 
-@php
-    $act = "";
 
-    if($active)
-    $act = "active";
 
-@endphp
-
-<li class="nav-item {{$act}}">
+<li class="nav-item">
     <a class="nav-link" href="{{$link}}">
-        <i class="{{$icon}}"></i>
+        <i class="{{$icon}} menu-icon"></i>
         <span class="menu-title">{{$title}}</span>
     </a>
 </li>

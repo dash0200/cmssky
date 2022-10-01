@@ -16,7 +16,7 @@
 
 <li class="nav-item">
     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="{{$open}}" aria-controls="ui-basic">
-        <i class="{{$icon}}"></i>
+        <i class="{{$icon}} menu-icon"></i>
         <span class="menu-title">{{$title}}</span>
         <i class="menu-arrow"></i>
     </a>

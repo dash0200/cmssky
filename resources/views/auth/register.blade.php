@@ -1,4 +1,14 @@
-<x-guest-layout>
+<style>
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+</style>
+
+<x-guest-layout title="Sign Up">
     <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <!-- Session Status -->
               <x-auth-session-status class="mb-4 text-danger" :status="session('status')" />
@@ -16,14 +26,14 @@
             <x-text-input id="name" placeholder="Name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
           </div>
           <div class="form-group"> 
-            <x-text-input id="email" placeholder="Email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <x-text-input id="email" autocomplete="off" placeholder="Phone" class="block mt-1 w-full" type="number" name="email" :value="old('email')" required />
           </div>
           <div class="form-group">
             <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                placeholder="Password"
-                                name="password"
-                                required autocomplete="new-password" />
+              type="password"
+              placeholder="Password"
+              name="password"
+              required autocomplete="new-password" />
           </div>
           <div class="form-group">
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
@@ -31,14 +41,6 @@
             placeholder="Confirm Password"
             name="password_confirmation" required />
           </div>
-          {{-- <div class="mb-4">
-            <div class="form-check">
-              <label class="form-check-label text-muted">
-                <input type="checkbox" class="form-check-input">
-                I agree to all Terms & Conditions
-              </label>
-            </div>
-          </div> --}}
           <div class="mt-3">
             <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
           </div>

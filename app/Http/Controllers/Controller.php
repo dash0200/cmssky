@@ -37,4 +37,25 @@ class Controller extends BaseController
             return response()->json(200);
         }
     }
+
+    public function dashboard() {
+        $session = Auth::user();
+
+        switch($session->user_type) {
+            case "doctor":
+                return redirect()->route("doctor.dashboard");
+                break;
+            case "patient":
+                return redirect()->route("patient.dashboard");
+                break;
+            case "reception":
+                return redirect()->route("reception.dashboard");
+                break;
+            case "admin":
+                return redirect()->route("admin.dashboard");
+                break;
+            default:
+                redirect()->route("login");
+        }
+    }
 }

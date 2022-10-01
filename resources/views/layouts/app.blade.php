@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+    @props(['page' => "", "title" => ""])
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title> {{$title == null ? "CMS" : $title}} </title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('assets/vendors/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/ti-icons/css/themify-icons.css') }}">
@@ -21,7 +21,7 @@
 
 <body>
     <div class="container-scroller">
-
+       
         @include('layouts.navbar')
         
         <div class="container-fluid page-body-wrapper">
@@ -32,8 +32,7 @@
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
-                    @include('layouts.partial')
-
+                    @include('layouts.partial', ["page" => $page])
                     <div class="row">
                       {{$slot}}
                     </div>
@@ -67,6 +66,8 @@
 <script src="{{ asset('assets/js/template.js') }}"></script>
 <script src="{{ asset('assets/js/settings.js') }}"></script>
 <script src="{{ asset('assets/js/todolist.js') }}"></script>
+
+<script src="{{asset('jquery-validation.js')}}"></script>
 
 <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 <script src="{{ asset('assets/js/Chart.roundedBarCharts.js') }}"></script>
