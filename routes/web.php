@@ -37,6 +37,9 @@ Route::group(['middleware' => ['auth']], function () {
             //-----------Doctors--------------
                 Route::get("/add-docotors-form", "addDoctor")->name("d.addDoctor");
                 Route::post("/store-docotor", "storeDoctorInfo")->name("d.storeDoctorInfo");
+                Route::get("/edit-docotor", "editDoctorInfo")->name("editDoctorInfo");
+                Route::post("/update-docotor", "updateDoctorInfo")->name("d.updateDoctorInfo");
+                Route::delete("/delete-docotor", "deleteDoctorInfo")->name("deleteDoctor");
 
                 Route::get("/doctor-list", "doctorList")->name("d.doctorList");
             //-----------Doctors--------------

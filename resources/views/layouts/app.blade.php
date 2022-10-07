@@ -18,7 +18,6 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
 </head>
-
 <body>
     <div class="container-scroller">
        
@@ -67,7 +66,7 @@
 <script src="{{ asset('assets/js/settings.js') }}"></script>
 <script src="{{ asset('assets/js/todolist.js') }}"></script>
 
-<script src="{{asset('jquery-validation.js')}}"></script>
+<script src="{{asset('sweet-alert.js')}}"></script>
 
 <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 <script src="{{ asset('assets/js/Chart.roundedBarCharts.js') }}"></script>
