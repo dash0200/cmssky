@@ -32,9 +32,7 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     @include('layouts.partial', ["page" => $page])
-                    <div class="row">
                       {{$slot}}
-                    </div>
                 </div>
 
 

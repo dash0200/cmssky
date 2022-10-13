@@ -13,7 +13,7 @@
         <form class="pt-3" method="POST" action="{{ route('login') }}">
           @csrf
           <div class="form-group">
-              <x-text-input id="email" placeholder="Username" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+              <x-text-input id="email" placeholder="Username" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required autofocus />
           </div>
           <div class="form-group">
               <x-text-input id="password" class="block mt-1 w-full"

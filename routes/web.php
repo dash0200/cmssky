@@ -49,6 +49,14 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::post("store-department", "storeDepartment")->name("master.storeDepartment");
                 Route::get("get-department", "getDepartments")->name("master.getDepartments");
             //--------------Masters---------------
+
+            //--------------Receptions---------------
+            Route::get("reception-form", "addReception")->name("reception.add");
+            Route::post("store", "storeReception")->name("reception.store");
+            Route::get("reception-list", "listReception")->name("reception.list");
+            Route::get("reception-edit", "editReception")->name("reception.edit");
+            Route::post("reception-update", "updateReception")->name("reception.update");
+            //--------------Receptions---------------
         });
     });
     //</------------------------------- Admin Routes ----------------------------------------/>
@@ -69,6 +77,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get("/dashboard", "patientDashboard")->name("dashboard");
             Route::get("/appointments", "appointments")->name("appointments");
             Route::get("/appointments/hostory", "appointmentsHistory")->name("appointmentHistory");
+            Route::post("/store", "storeAppointment")->name("storeAppointment");
         });
     });
      //</------------------------------- Patient Routes ----------------------------------------/>

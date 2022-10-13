@@ -9,10 +9,15 @@
             <x-sidebar-submenu-link link="{{route('admin.d.doctorList')}}" title="Doctors List"/>
         </x-sidebar-item>
 
-        <x-sidebar-item title="Masters" icon="mdi mdi-docotor" active="{{request()->routeIs('admin.master.*')}}" >
+        <x-sidebar-item title="Receptionists" icon="mdi mdi-docotor" active="{{request()->routeIs('*.reception.*')}}">
+            <x-sidebar-submenu-link link="{{route('admin.reception.add')}}" title="Add Reception"/>
+            <x-sidebar-submenu-link link="{{route('admin.reception.list')}}" title="Reception List"/>
+        </x-sidebar-item>
+
+        <x-sidebar-item title="Masters" icon="mdi mdi-docotor" active="{{request()->routeIs('master.*')}}" >
             <x-sidebar-submenu-link link="{{route('admin.master.addDepartment')}}" title="Add Department"/>
         </x-sidebar-item>
-         @break
+        @break
 
      @case("patient")
          <x-sidebar-item title="Appointments" icon="mdi mdi-calendar-text" >

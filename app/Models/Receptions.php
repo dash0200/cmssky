@@ -10,6 +10,7 @@ class Receptions extends Model
     use HasFactory;
 
     protected $table = "receptions";
+    protected $dates = ["dob"];
     protected $fillable = [
         "name",
         "mname",

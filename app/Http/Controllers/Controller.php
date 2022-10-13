@@ -38,6 +38,35 @@ class Controller extends BaseController
         }
     }
 
+    public function amPm($time) {
+        switch ($time) {
+            case '10-11':
+                return "10am - "."11am";
+                break;
+            case '11-12':
+                return "11am - "."12pm";
+                break;
+            case '12-13':
+                return "12pm - "."1pm";
+                break;
+            case '13-14':
+                return "1pm - "."2pm";
+                break;
+            case '15-16':
+                return "3pm - "."4pm";
+                break;
+            case '16-17':
+                return "4pm - "."5pm";
+                break;
+            case '17-18':
+                return "5pm - "."6pm";
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+
     public function dashboard() {
         $session = Auth::user();
 
@@ -46,6 +75,7 @@ class Controller extends BaseController
                 return redirect()->route("doctor.dashboard");
                 break;
             case "patient":
+                
                 return redirect()->route("patient.dashboard");
                 break;
             case "reception":
