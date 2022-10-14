@@ -37,16 +37,18 @@ class RegisteredUserController extends Controller
         
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'numeric', 'unique:users'],
+            'email' => ['required', 'string', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $patient = Patients::create([
             "name" => $request->name,
-            "phone" => $request->email,
+            "email" => $request->email,
+            "phone" => $request->phone,
         ]);
 
         $user = '';
+
         if(isset($patient->id)) {
             $user = User::create([
                 'name' => $request->name,

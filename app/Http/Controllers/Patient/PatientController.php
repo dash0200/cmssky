@@ -15,10 +15,11 @@ class PatientController extends Controller
     var $p = "pages.patient.";
     public function patientDashboard() {
         $appointment = Appointments::whereDate('created_at', Carbon::today())->first();
+        if($appointment !== null) {
+            $appointment->time_slot = Controller::amPm($appointment->time_slot);
+            $appointment['doctor'] = $appointment->getDoctor->name;
+        }
 
-        $appointment->time_slot = Controller::amPm($appointment->time_slot);
-
-        $appointment['doctor'] = $appointment->getDoctor->name;
         return view($this->p.'dashboard')->with(['appointment' => $appointment]);
     }
 

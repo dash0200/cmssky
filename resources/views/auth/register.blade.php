@@ -28,6 +28,9 @@ input[type=number]::-webkit-outer-spin-button {
           <div class="form-group"> 
             <x-text-input id="email" autocomplete="off" placeholder="Email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
           </div>
+          <div class="form-group"> 
+            <x-text-input id="phone" autocomplete="off" placeholder="Phone" class="block mt-1 w-full" type="number" name="phone" :value="old('phone')" required />
+          </div>
           <div class="form-group">
             <x-text-input id="password" class="block mt-1 w-full"
               type="password"

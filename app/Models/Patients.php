@@ -13,6 +13,7 @@ class Patients extends Model
     protected $table = "patients";
     protected $fillable = [
         "name",
+        "email",
         "phone",
     ];
 }
